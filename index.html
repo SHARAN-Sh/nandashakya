@@ -1,0 +1,2428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nanda Shakya | Himalayan Journeys</title>
+
+    <!-- ==============================
+         GOOGLE FONTS
+    =============================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        :root {
+
+            --cream: #faf4e7;
+            --cream-dark: #eee1c8;
+
+            --green: #355844;
+            --green-light: #587963;
+
+            --orange: #d97c36;
+            --yellow: #eeb75c;
+
+            --brown: #73563f;
+
+            --dark: #292720;
+
+            --muted: #756e64;
+
+            --white: #ffffff;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 85px;
+            right: 27px;
+            z-index: 2;
+            width: 3.3rem;
+        }
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: "DM Sans", sans-serif;
+
+            background: var(--cream);
+
+            color: var(--dark);
+
+            overflow-x: hidden;
+        }
+
+
+        h1,
+        h2,
+        h3 {
+
+            font-family:
+                "Playfair Display",
+                serif;
+        }
+
+
+        a {
+
+            text-decoration: none;
+
+            color: inherit;
+        }
+
+
+        img {
+
+            display: block;
+
+            max-width: 100%;
+        }
+
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .navbar {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 26px 6%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            z-index: 1000;
+
+            transition:
+                background .4s ease,
+                padding .4s ease,
+                box-shadow .4s ease;
+        }
+
+
+        .navbar.scrolled {
+
+            padding-top: 17px;
+            padding-bottom: 17px;
+
+            background:
+                rgba(250,244,231,.92);
+
+            backdrop-filter:
+                blur(18px);
+
+            box-shadow:
+                0 5px 30px
+                rgba(50,40,20,.08);
+        }
+
+
+        .logo {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 25px;
+
+            font-weight: 600;
+        }
+
+
+        .logo span {
+
+            color: var(--orange);
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 32px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+
+            font-size: 13px;
+
+            color: var(--dark);
+
+            transition: color .3s ease;
+        }
+
+
+        .nav-links a:hover {
+
+            color: var(--orange);
+        }
+
+
+        .nav-contact {
+
+            padding:
+                10px 17px;
+
+            border-radius: 30px;
+
+            background: var(--green);
+
+            color: white !important;
+        }
+
+
+        .nav-contact:hover {
+
+            background:
+                var(--orange);
+
+            color: white !important;
+        }
+
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            height: 175vh;
+
+            position: relative;
+
+            background:
+                var(--dark);
+        }
+
+
+        .hero-stage {
+
+            position: sticky;
+
+            top: 0;
+
+            height: 100vh;
+
+            overflow: hidden;
+
+            background:
+                var(--dark);
+        }
+
+
+        /* Hero Image Background */
+
+        .hero-image {
+            position: absolute;
+            inset: -5%; /* Slightly larger to allow for parallax panning */
+            width: 110%;
+            height: 110%;
+            background-image: url('banner.png');
+            background-size: cover;
+            background-position: center 30%;
+            z-index: 1;
+            /* Will-change optimizes the scroll animation performance */
+            will-change: transform;
+        }
+
+
+        /* Image overlay for text readability */
+
+        .hero-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 2;
+
+            pointer-events: none;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    rgba(250,244,231,.98) 0%,
+                    rgba(250,244,231,.85) 35%,
+                    rgba(250,244,231,.20) 65%,
+                    rgba(250,244,231,.0) 100%
+                ),
+
+                linear-gradient(
+                    0deg,
+                    rgba(25,35,28,.3),
+                    transparent 60%
+                );
+        }
+
+
+
+        /* =====================================================
+           HERO CONTENT
+        ===================================================== */
+
+        .hero-content {
+
+            position: absolute;
+
+            z-index: 10;
+
+            left: 7%;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width:
+                min(530px, 80vw);
+                
+            will-change: transform, opacity;
+        }
+
+
+        .hero-label {
+
+            display: inline-block;
+
+            margin-bottom: 22px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            color: var(--orange);
+        }
+
+
+        .hero-title {
+
+            font-size:
+                clamp(55px, 7.5vw, 100px);
+
+            line-height: .9;
+
+            letter-spacing: -4px;
+
+            font-weight: 500;
+        }
+
+
+        .hero-title span {
+
+            display: block;
+
+            color: var(--green);
+        }
+
+
+        .hero-description {
+
+            max-width: 450px;
+
+            margin-top: 28px;
+
+            color: var(--muted);
+
+            font-size: 15px;
+
+            line-height: 1.85;
+        }
+
+
+        /* =====================================================
+           HERO BUTTON
+        ===================================================== */
+
+        .hero-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            margin-top: 32px;
+
+            padding:
+                15px 22px;
+
+            border-radius: 50px;
+
+            background:
+                var(--green);
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition:
+                transform .3s ease,
+                background .3s ease;
+        }
+
+
+        .hero-button span {
+
+            font-size: 18px;
+
+            transition:
+                transform .3s ease;
+        }
+
+
+        .hero-button:hover {
+
+            background:
+                var(--orange);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        .hero-button:hover span {
+
+            transform:
+                translateX(5px);
+        }
+
+
+
+        /* =====================================================
+           HERO BOTTOM
+        ===================================================== */
+
+        .hero-bottom {
+
+            position: absolute;
+
+            z-index: 10;
+
+            left: 6%;
+
+            right: 6%;
+
+            bottom: 30px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            color: var(--dark);
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+            
+            will-change: opacity;
+        }
+
+
+        .scroll-indicator {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+        }
+
+
+        .scroll-line {
+
+            width: 65px;
+
+            height: 1px;
+
+            background:
+                currentColor;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .scroll-line::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: -100%;
+
+            top: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: var(--dark);
+
+            animation:
+                scrollLine 2s infinite;
+        }
+
+
+        @keyframes scrollLine {
+
+            0% {
+                left: -100%;
+            }
+
+            50% {
+                left: 0;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+
+
+        /* =====================================================
+           INTRO
+        ===================================================== */
+
+        .intro {
+
+            min-height: 80vh;
+
+            padding:
+                150px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                var(--cream);
+        }
+
+
+        .intro-inner {
+
+            max-width: 850px;
+        }
+
+
+        .section-label {
+
+            margin-bottom: 20px;
+
+            color: var(--orange);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+        }
+
+
+        .intro h2 {
+
+            font-size:
+                clamp(45px, 6vw, 75px);
+
+            line-height: .98;
+
+            font-weight: 500;
+        }
+
+
+        .intro p {
+
+            max-width: 600px;
+
+            margin:
+                30px auto 0;
+
+            color: var(--muted);
+
+            line-height: 1.85;
+        }
+
+
+
+        /* =====================================================
+           EXPERIENCE
+        ===================================================== */
+
+        .experiences {
+
+            padding:
+                120px 7%;
+
+            background:
+                var(--cream-dark);
+        }
+
+
+        .section-container {
+
+            max-width: 1150px;
+
+            margin: auto;
+        }
+
+
+        .section-heading {
+
+            margin-bottom: 50px;
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                clamp(45px, 5vw, 65px);
+
+            line-height: 1;
+        }
+
+
+        .experience-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .experience-card {
+
+            min-height: 330px;
+
+            padding: 35px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,255,255,.52);
+
+            border:
+                1px solid
+                rgba(100,80,50,.08);
+
+            transition:
+                transform .4s ease,
+                background .4s ease,
+                box-shadow .4s ease;
+        }
+
+
+        .experience-card:hover {
+
+            transform:
+                translateY(-10px)
+                rotate(.5deg);
+
+            background:
+                rgba(255,255,255,.9);
+
+            box-shadow:
+                0 25px 60px
+                rgba(70,50,20,.10);
+        }
+
+
+        .experience-icon {
+
+            font-size: 38px;
+
+            margin-bottom: 45px;
+        }
+
+
+        .experience-card h3 {
+
+            font-size: 28px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .experience-card p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.85;
+        }
+
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+
+            padding:
+                130px 7%;
+
+            background:
+                var(--cream);
+        }
+
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+
+        .about-image {
+
+            height: 600px;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+
+            background:
+                #ddd;
+        }
+
+
+        .about-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        .about-content h2 {
+
+            font-size:
+                clamp(45px, 5vw, 65px);
+
+            line-height: .95;
+
+            font-weight: 500;
+        }
+
+
+        .about-content p {
+
+            margin-top: 25px;
+
+            color: var(--muted);
+
+            line-height: 1.9;
+
+            font-size: 15px;
+        }
+
+
+        .about-signature {
+
+            margin-top: 35px;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 25px;
+
+            color: var(--brown);
+        }
+
+
+
+        /* =====================================================
+           GALLERY
+        ===================================================== */
+
+        .gallery {
+
+            padding:
+                120px 7%;
+
+            background:
+                var(--green);
+
+            color: white;
+        }
+
+
+        .gallery-heading {
+
+            max-width: 700px;
+        }
+
+
+        .gallery-heading .section-label {
+
+            color:
+                var(--yellow);
+        }
+
+
+        .gallery-heading h2 {
+
+            font-size:
+                clamp(45px, 6vw, 70px);
+
+            line-height: .95;
+
+            font-weight: 500;
+        }
+
+
+        .gallery-heading p {
+
+            max-width: 550px;
+
+            margin-top: 25px;
+
+            color:
+                rgba(255,255,255,.72);
+
+            line-height: 1.8;
+        }
+
+
+        .gallery-grid {
+
+            margin-top: 55px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr 1fr 1fr;
+
+            grid-template-rows:
+                260px 260px;
+
+            gap: 14px;
+        }
+
+
+        .gallery-item {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            cursor: pointer;
+        }
+
+
+        .gallery-item:first-child {
+
+            grid-row:
+                span 2;
+        }
+
+
+        .gallery-item img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .7s ease;
+        }
+
+
+        .gallery-item::after {
+
+            content: "View";
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%)
+                scale(.8);
+
+            padding:
+                10px 18px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,.9);
+
+            color:
+                var(--dark);
+
+            font-size: 11px;
+
+            opacity: 0;
+
+            transition: .3s;
+
+            pointer-events: none;
+        }
+
+
+        .gallery-item:hover img {
+
+            transform:
+                scale(1.08);
+        }
+
+
+        .gallery-item:hover::after {
+
+            opacity: 1;
+
+            transform:
+                translate(-50%, -50%)
+                scale(1);
+        }
+
+
+        /* =====================================================
+           DOCUMENTARY SECTION
+        ===================================================== */
+
+        .documentary {
+            padding: 120px 7%;
+            background: var(--cream-dark);
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .doc-video {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            background: #000;
+        }
+
+        .doc-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .doc-content h2 {
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .doc-content p {
+            color: var(--muted);
+            line-height: 1.85;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+
+
+        /* =====================================================
+           IMAGE POPUP / LIGHTBOX
+        ===================================================== */
+
+        .lightbox {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 5000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            background:
+                rgba(20,25,20,.92);
+
+            backdrop-filter:
+                blur(12px);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity .3s ease,
+                visibility .3s ease;
+        }
+
+
+        .lightbox.active {
+
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+
+        .lightbox-image {
+
+            max-width: 90vw;
+
+            max-height: 85vh;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+
+            transform:
+                scale(.92);
+
+            transition:
+                transform .4s ease;
+
+            box-shadow:
+                0 30px 100px
+                rgba(0,0,0,.4);
+        }
+
+
+        .lightbox.active
+        .lightbox-image {
+
+            transform:
+                scale(1);
+        }
+
+
+        .lightbox-close {
+
+            position: absolute;
+
+            top: 25px;
+
+            right: 30px;
+
+            width: 45px;
+
+            height: 45px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.15);
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+
+        .lightbox-close:hover {
+
+            background:
+                var(--orange);
+
+            transform:
+                rotate(90deg);
+        }
+
+
+        .lightbox-prev,
+        .lightbox-next {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 48px;
+
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,.15);
+
+            color: white;
+
+            font-size: 24px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+
+        .lightbox-prev {
+
+            left: 25px;
+        }
+
+
+        .lightbox-next {
+
+            right: 25px;
+        }
+
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+
+            background:
+                var(--orange);
+        }
+
+
+
+        /* =====================================================
+           CTA & QR SECTION
+        ===================================================== */
+
+        .cta {
+
+            padding:
+                120px 7% 150px;
+
+            text-align: center;
+
+            background:
+                var(--cream);
+        }
+
+
+        .cta-inner {
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+
+        .cta h2 {
+
+            font-size:
+                clamp(45px, 6vw, 78px);
+
+            line-height: .95;
+
+            font-weight: 500;
+        }
+
+
+        .cta p {
+
+            max-width: 600px;
+
+            margin:
+                30px auto;
+
+            color: var(--muted);
+
+            line-height: 1.8;
+        }
+
+
+        .cta-button {
+
+            display: inline-flex;
+
+            padding:
+                15px 24px;
+
+            border-radius: 50px;
+
+            background:
+                var(--green);
+
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: .3s;
+
+            margin-bottom: 60px;
+        }
+
+
+        .cta-button:hover {
+
+            background:
+                var(--orange);
+
+            transform:
+                translateY(-3px);
+        }
+
+        .qr-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .qr-card {
+            background: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .qr-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 8px;
+        }
+
+        .qr-card p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            padding:
+                65px 7%;
+
+            background:
+                #233b2d;
+
+            color: white;
+        }
+
+
+        .footer-inner {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+
+        .footer-logo {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 25px;
+        }
+
+
+        .footer-logo span {
+
+            color:
+                var(--yellow);
+        }
+
+
+        .footer-copy {
+
+            margin-top: 8px;
+
+            color:
+                rgba(255,255,255,.55);
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           SOCIAL MEDIA
+        ===================================================== */
+
+        .social-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+        }
+
+
+        .social-button {
+
+            width: 42px;
+
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border:
+                1px solid
+                rgba(255,255,255,.2);
+
+            color: white;
+
+            transition:
+                background .3s ease,
+                transform .3s ease,
+                border-color .3s ease;
+        }
+
+        .social-button svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        .social-button:hover {
+
+            background:
+                var(--orange);
+
+            border-color:
+                var(--orange);
+
+            transform:
+                translateY(-4px);
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width: 800px) {
+
+
+            .nav-links {
+
+                display: none;
+            }
+
+
+            .hero {
+
+                height: 155vh;
+            }
+
+
+            .hero-content {
+
+                left: 7%;
+
+                right: 7%;
+
+                width: auto;
+
+                top: 48%;
+            }
+
+
+            .hero-title {
+
+                font-size: 58px;
+
+                letter-spacing: -2px;
+            }
+
+
+            .hero-description {
+
+                font-size: 14px;
+            }
+
+
+            .hero-overlay {
+
+                background:
+
+                    linear-gradient(
+                        90deg,
+                        rgba(250,244,231,.95),
+                        rgba(250,244,231,.3)
+                    ),
+
+                    linear-gradient(
+                        0deg,
+                        rgba(25,35,28,.2),
+                        transparent 50%
+                    );
+            }
+
+
+            .hero-bottom {
+
+                left: 7%;
+
+                right: 7%;
+            }
+
+
+            .experience-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .about-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 45px;
+            }
+
+
+            .about-image {
+
+                height: 450px;
+            }
+
+
+            .gallery-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                grid-template-rows:
+                    250px 190px 190px;
+            }
+
+
+            .gallery-item:first-child {
+
+                grid-column:
+                    span 2;
+
+                grid-row:
+                    span 1;
+            }
+
+            .doc-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+
+            .qr-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+
+            .footer-inner {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+            }
+
+
+            .lightbox-prev {
+
+                left: 10px;
+            }
+
+
+            .lightbox-next {
+
+                right: 10px;
+            }
+
+
+            .lightbox-image {
+
+                max-width:
+                    94vw;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header>
+
+    <nav class="navbar" id="navbar">
+
+        <a
+            href="#home"
+            class="logo"
+        >
+            Nanda <span>Shakya</span>
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="#experience">
+                Experiences
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#gallery">
+                Gallery
+            </a>
+
+            <a href="#documentary">
+                Documentary
+            </a>
+
+            <a
+                href="#contact"
+                class="nav-contact"
+            >
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-stage">
+
+
+        <!-- HERO IMAGE BACKGROUND -->
+
+        <div class="hero-image" id="heroImage"></div>
+
+
+        <!-- IMAGE OVERLAY -->
+
+        <div class="hero-overlay"></div>
+
+
+
+        <!-- HERO CONTENT -->
+
+        <div
+            class="hero-content"
+            id="heroContent"
+        >
+
+            <div class="hero-label">
+
+                TOUR GUIDE · HIMALAYAN JOURNEYS
+
+            </div>
+
+
+            <h1 class="hero-title">
+
+                Discover the
+
+                <span>
+                    Himalayas.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+                Discover the Himalayas, Culture & Spiritual Heart of Nepal
+            </p>
+
+
+            <a
+                href="#experience"
+                class="hero-button"
+            >
+
+                Explore the journey
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- HERO BOTTOM -->
+
+        <div
+            class="hero-bottom"
+            id="heroBottom"
+        >
+
+            <span>
+                Culture · Adventure · Stories · Mountains · People
+            </span>
+
+
+            <div class="scroll-indicator">
+
+                <span>
+                    Scroll
+                </span>
+
+                <div class="scroll-line"></div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    class="about"
+    id="about"
+>
+
+    <div class="section-container">
+
+
+        <div class="about-grid">
+
+
+            <!-- IMAGE -->
+
+            <div class="about-image">
+
+                <img
+                    src="img1.jpg"
+                    alt="Himalayan mountains"
+                >
+
+            </div>
+
+
+
+            <!-- TEXT -->
+
+            <div class="about-content">
+
+                <div class="section-label">
+
+                    YOUR GUIDE
+
+                </div>
+
+
+                <h2>
+
+                    Meet Nanda
+                    Shakya.
+
+                </h2>
+
+
+                <p>
+                    Discover the beauty of the Himalayas, the warmth of its people, and the spiritual traditions woven into the mountains. From peaceful monasteries to breathtaking landscapes, every journey offers a chance to experience Nepal from the heart.
+
+                </p>
+
+
+                <div class="about-signature">
+
+                    Welcome to Nepal — your Himalayan journey begins here.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section
+    class="gallery"
+    id="gallery"
+>
+
+    <div class="section-container">
+
+
+        <div class="gallery-heading">
+
+            <div class="section-label">
+
+                MOMENTS ALONG THE WAY
+
+            </div>
+
+
+            <h2>
+
+                See where the
+                journey takes you.
+
+            </h2>
+
+
+            <p>
+
+                A glimpse into the mountains,
+                architecture, spirituality and
+                everyday moments waiting to be
+                discovered.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="gallery-grid">
+
+
+            <div
+                class="gallery-item"
+                data-image="mustang.avif"
+            >
+
+                <img
+                    src="mustang.avif"
+                    alt="Himalayan mountains"
+                >
+
+            </div>
+
+
+            <div
+                class="gallery-item"
+                data-image="ghandruk.jpg"
+            >
+
+                <img
+                    src="ghandruk.jpg"
+                    alt="Mountain landscape"
+                >
+
+            </div>
+
+
+            <div
+                class="gallery-item"
+                data-image="boudhga.jpg"
+            >
+
+                <img
+                    src="boudhga.jpg"
+                    alt="Temple architecture"
+                >
+
+            </div>
+
+
+            <div
+                class="gallery-item"
+                data-image="ptn.jpg"
+            >
+
+                <img
+                    src="ptn.jpg"
+                    alt="Himalayan landscape"
+                >
+
+            </div>
+
+
+            <div
+                class="gallery-item"
+                data-image="abc.avif"
+            >
+
+                <img
+                    src="abc.avif"
+                    alt="Cultural experience"
+                >
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     EXPERIENCES
+===================================================== -->
+
+<section
+    class="experiences"
+    id="experience"
+>
+
+    <div class="section-container">
+
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                EXPERIENCES
+            </div>
+
+            <h2>
+                Choose your adventure.
+            </h2>
+
+        </div>
+
+
+
+        <div class="experience-grid">
+
+
+            <!-- CARD 1 -->
+
+            <article class="experience-card">
+
+                <div class="experience-icon">
+                    🏔️
+                </div>
+
+                <h3>
+                    Mountain Adventures
+                </h3>
+
+                <p>
+
+                    Walk through mountain landscapes,
+                    peaceful villages and beautiful trails
+                    while discovering the Himalayas at
+                    your own pace.
+
+                </p>
+
+            </article>
+
+
+
+            <!-- CARD 2 -->
+
+            <article class="experience-card">
+
+                <div class="experience-icon">
+                    🛕
+                </div>
+
+                <h3>
+                    Sacred Journeys
+                </h3>
+
+                <p>
+
+                    Visit temples, stupas and monasteries
+                    while discovering the stories and
+                    traditions behind these remarkable places.
+
+                </p>
+
+            </article>
+
+
+
+            <!-- CARD 3 -->
+
+            <article class="experience-card">
+
+                <div class="experience-icon">
+                    🎎
+                </div>
+
+                <h3>
+                    Culture & People
+                </h3>
+
+                <p>
+
+                    Experience local communities, food,
+                    architecture, festivals and everyday
+                    life beyond the usual tourist route.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<!-- <section class="intro">
+
+    <div class="intro-inner">
+
+        <div class="section-label">
+
+            BEYOND THE ORDINARY
+
+        </div>
+
+
+        <h2>
+
+            The best memories
+            aren't always on the map.
+
+        </h2>
+
+
+        <p>
+
+            Discover the places, people and traditions
+            that make every journey worth remembering.
+
+        </p>
+
+    </div>
+
+</section> -->
+
+
+
+
+
+
+
+<!-- =====================================================
+     DOCUMENTARY SECTION
+===================================================== -->
+
+<section class="documentary" id="documentary">
+
+    <div class="section-container">
+
+        <div class="doc-grid">
+
+            <!-- Video (Left Side) -->
+            <div class="doc-video">
+                <iframe src="https://www.youtube.com/embed/VzZTicY-3EI?si=IVHKEgPpUG24Bnfz" title="Documentary Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+            </div>
+
+            <!-- Description (Right Side) -->
+            <div class="doc-content">
+                <div class="section-label">FEATURED DOCUMENTARY</div>
+                <h2>Art That Carries a Story</h2>
+                <p>
+                    <strong>Preserving Traditional Art, One Story at a Time.</strong><br><br>
+                    YALA Artefacts follows the artisans keeping Nepal's traditional craftsmanship alive, from sacred metalwork to fine details carried through generations of hands.
+                </p>
+                <p>
+                    Experience the preservation of ancient heritage and the personal stories of the people behind these timeless masterpieces.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+>
+
+
+    <button
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="Close image"
+    >
+        ×
+    </button>
+
+
+    <button
+        class="lightbox-prev"
+        id="lightboxPrev"
+        aria-label="Previous image"
+    >
+        ‹
+    </button>
+
+
+    <img
+        class="lightbox-image"
+        id="lightboxImage"
+        src=""
+        alt="Gallery image"
+    >
+
+
+    <button
+        class="lightbox-next"
+        id="lightboxNext"
+        aria-label="Next image"
+    >
+        ›
+    </button>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     CTA & QR SECTION
+===================================================== -->
+
+<section
+    class="cta"
+    id="contact"
+>
+
+    <div class="cta-inner">
+
+
+        <div class="section-label">
+
+            YOUR JOURNEY STARTS HERE
+
+        </div>
+
+
+        <h2>
+
+            Let's create a story
+            worth remembering.
+
+        </h2>
+
+
+        <p>
+
+            Looking for mountains, culture,
+            spirituality or something completely
+            different? Get in touch and start planning.
+
+        </p>
+
+
+        <a
+            href="https://wa.me/+9779843129991"
+            class="cta-button"
+        >
+
+            Talk to Nanda →
+
+        </a>
+
+        <!-- QR Codes -->
+        <div class="qr-section">
+
+            <div class="qr-card">
+                <img src="whatsapp.png" alt="WhatsApp QR Code">
+                <p>WhatsApp</p>
+            </div>
+
+            <div class="qr-card">
+                <img src="line.jpg" alt="LINE QR Code">
+                <p>LINE</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-inner">
+
+
+        <div>
+
+            <div class="footer-logo">
+
+                Nanda <span>Shakya</span>
+
+            </div>
+
+
+            <div class="footer-copy">
+
+                © Nanda Shakya.
+                Travel · Culture · Adventure.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SOCIAL MEDIA -->
+
+        <div class="social-links">
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/nanda.shakya" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="Facebook" title="Facebook">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+            </a>
+
+            <!-- Instagram -->
+            <!-- <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="Instagram" title="Instagram">
+                <svg viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a> -->
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/+9779843129991" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="WhatsApp" title="WhatsApp">
+                <svg viewBox="0 0 24 24">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@YalaArtefacts" target="_blank" rel="noopener noreferrer" class="social-button" aria-label="YouTube" title="YouTube">
+                <svg viewBox="0 0 24 24">
+                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path>
+                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<a href="https://wa.me/+9779843129991" target="_blank" rel="noreferrer" class="whatsapp-button" rel="noopener noreferror"><img src="https://www.hotelcountryvilla.com/template/web/img/whatsapp.png" class="img-fluid" alt="whatsapp"></a>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================================================
+   NAVBAR SCROLL
+========================================================= */
+
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
+
+/* =========================================================
+   HERO SCROLL ANIMATION (IMAGE PARALLAX)
+========================================================= */
+
+const hero = document.querySelector(".hero");
+const heroImage = document.getElementById("heroImage");
+const heroContent = document.getElementById("heroContent");
+const heroBottom = document.getElementById("heroBottom");
+
+let ticking = false;
+
+function updateHeroScroll() {
+    const rect = hero.getBoundingClientRect();
+    const distance = hero.offsetHeight - window.innerHeight;
+
+    // Calculate how far down the hero section we are (0 to 1)
+    let progress = -rect.top / distance;
+    progress = Math.max(0, Math.min(1, progress));
+
+    // 1. IMAGE PARALLAX & ZOOM
+    // Image scales up slightly and moves down to create depth
+    const scale = 1 + progress * 0.15; 
+    const translateY = progress * 100;
+    heroImage.style.transform = `translateY(${translateY}px) scale(${scale})`;
+
+    // 2. TEXT EFFECTS
+    heroContent.style.transform = `translateY(calc(-50% - ${progress * 230}px))`;
+    heroContent.style.opacity = Math.max(0, 1 - progress * 1.35);
+    
+    // 3. BOTTOM BAR EFFECT
+    heroBottom.style.opacity = Math.max(0, 1 - progress * 5);
+
+    ticking = false;
+}
+
+window.addEventListener("scroll", () => {
+    if (!ticking) {
+        window.requestAnimationFrame(updateHeroScroll);
+        ticking = true;
+    }
+});
+
+
+/* =========================================================
+   GALLERY LIGHTBOX
+========================================================= */
+
+const galleryItems = document.querySelectorAll(".gallery-item");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+
+let currentImage = 0;
+
+const images = Array.from(galleryItems).map(item => item.dataset.image);
+
+function openLightbox(index) {
+    currentImage = index;
+    lightboxImage.src = images[currentImage];
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+function nextImage() {
+    currentImage++;
+    if (currentImage >= images.length) {
+        currentImage = 0;
+    }
+    lightboxImage.src = images[currentImage];
+}
+
+function previousImage() {
+    currentImage--;
+    if (currentImage < 0) {
+        currentImage = images.length - 1;
+    }
+    lightboxImage.src = images[currentImage];
+}
+
+galleryItems.forEach((item, index) => {
+    item.addEventListener("click", () => {
+        openLightbox(index);
+    });
+});
+
+lightboxClose.addEventListener("click", closeLightbox);
+lightboxNext.addEventListener("click", nextImage);
+lightboxPrev.addEventListener("click", previousImage);
+
+lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+document.addEventListener("keydown", event => {
+    if (!lightbox.classList.contains("active")) {
+        return;
+    }
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+    if (event.key === "ArrowRight") {
+        nextImage();
+    }
+    if (event.key === "ArrowLeft") {
+        previousImage();
+    }
+});
+
+</script>
+
+</body>
+
+</html>
